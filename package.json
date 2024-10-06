@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "main": "app.ts",
     "scripts": {
-      "start": "ts-node-dev src/app.ts"
+      "start": "ts-node-dev src/app.ts",
+      "build": "tsc"
     },
     "dependencies": {
       "express": "^4.17.1",
