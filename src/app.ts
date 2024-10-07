@@ -11,16 +11,12 @@ app.use(express.json());
 app.use('/api', codeRoutes);
 
 const PORT = process.env.PORT || 3002;
+// const isProd = process.env.NODE_ENV;
 
 const corsOptions = {
-    origin: (origin: any, callback: any) => {
-        if (!origin || origin === null) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true,
+    origin: 'http://localhost:8888',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
 app.use(cors(corsOptions));
