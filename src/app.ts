@@ -2,6 +2,7 @@ import express, { Application } from 'express';
 import codeRoutes from './routes/code.route';
 import sequelize from './config/database';
 import { Code } from './models/code.models';
+import cors from "cors"
 
 const app: Application = express();
 
@@ -10,6 +11,15 @@ app.use(express.json());
 app.use('/api', codeRoutes);
 
 const PORT = process.env.PORT || 3002;
+
+app.use(
+    cors({
+        origin: 'electron://localhost',
+        credentials: true,
+        allowedHeaders: ['Content-Type', 'Authorization'],
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    })
+);
 
 sequelize.authenticate()
     .then(() => {
