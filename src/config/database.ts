@@ -8,7 +8,7 @@ const isProd = process.env.NODE_ENV === "prod";
 let sequelize: Sequelize;
 
 if (isProd) {
-    const connectionProd = process.env.DB_CONNECTION_INT;
+    const connectionProd = process.env.DB_PORT_PROD;
     if (!connectionProd) {
         throw new Error("La cadena de conexión a la base de datos no está definida en producción.");
     }
