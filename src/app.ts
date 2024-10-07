@@ -12,13 +12,18 @@ app.use('/api', codeRoutes);
 
 const PORT = process.env.PORT || 3002;
 
-app.use(
-    cors({
-        origin: 'electron://localhost',
-        allowedHeaders: ['Content-Type', 'Authorization'],
-        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    })
-);
+const corsOptions = {
+    origin: (origin: any, callback: any) => {
+        if (!origin || origin === null) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 sequelize.authenticate()
     .then(() => {
