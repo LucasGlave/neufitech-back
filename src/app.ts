@@ -15,7 +15,6 @@ const PORT = process.env.PORT || 3002;
 app.use(
     cors({
         origin: 'electron://localhost',
-        credentials: true,
         allowedHeaders: ['Content-Type', 'Authorization'],
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     })
