@@ -9,6 +9,7 @@ let sequelize: Sequelize;
 
 if (isProd) {
     const connectionProd = process.env.DB_PORT_PROD;
+    console.log(connectionProd)
     if (!connectionProd) {
         throw new Error("La cadena de conexión a la base de datos no está definida en producción.");
     }
