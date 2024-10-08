@@ -15,7 +15,12 @@ export const addCode = async (inputCode: string) => {
 export const statusCode = async (inputCode: string) => {
     const codeExists = await findCode(inputCode);
     if (codeExists) {
-        return await Code.update({ verified: true }, { where: { code: inputCode } });
+        if (codeExists.verified) {
+            return 401
+        } else {
+            const update = await Code.update({ verified: true }, { where: { code: inputCode } });
+            if (update) return 200
+        }
     }
     throw new Error('Code not exists');
 };
