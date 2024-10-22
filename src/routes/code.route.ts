@@ -1,10 +1,10 @@
-import { Router } from 'express';
-import { compareCode, createCode, getCodes } from '../controllers/code.controllers';
+import { Router } from "express";
+import code from "../controllers/code.controllers";
 
 const router = Router();
 
-router.post('/compare-code', compareCode);
-router.post('/add-code', createCode);
-router.get('/code', getCodes);
+router.post("/compare-code", code.compareCode);
+router.post("/add-code", code.createCode);
+router.get("/code", code.getCodes);
 
 export default router;
