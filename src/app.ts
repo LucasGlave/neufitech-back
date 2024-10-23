@@ -3,6 +3,7 @@ import routes from "./routes";
 import sequelize from "./config/database";
 import { Code } from "./models/code.models";
 import cors from "cors";
+require('dotenv').config();
 
 const app: Application = express();
 
