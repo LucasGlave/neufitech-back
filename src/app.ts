@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 import routes from "./routes";
 import sequelize from "./config/database";
+import logger from "morgan"
 import { Code } from "./models/code.models";
 import cors from "cors";
 require('dotenv').config();
@@ -8,6 +9,8 @@ require('dotenv').config();
 const app: Application = express();
 
 app.use(express.json());
+
+app.use(logger("dev"))
 
 app.use("/", routes);
 
