@@ -23,6 +23,7 @@ const compareCode = async (req: Request, res: Response) => {
       return res.status(status).json({ message: "User already verified." });
     }
   } catch (error) {
+    console.log(error)
     return res.status(500).json({ error: error });
   }
 };
