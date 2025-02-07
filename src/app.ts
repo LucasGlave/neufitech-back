@@ -4,6 +4,7 @@ import sequelize from "./config/database";
 import logger from "morgan"
 import { Code } from "./models/code.models";
 import cors from "cors";
+import { NeufialertUser } from "./models/neufialertUser.models";
 require('dotenv').config();
 
 const app: Application = express();
@@ -30,6 +31,7 @@ sequelize
   .then(() => {
     console.log("Database connected.");
     Code.initialize(sequelize);
+    NeufialertUser.initialize(sequelize);
     return sequelize.sync({ force: false }).then(() => {
       app.listen(PORT, () => console.log(`Servidor en el puerto ${PORT}`));
     });

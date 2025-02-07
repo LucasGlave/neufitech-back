@@ -4,7 +4,7 @@ import {
   addCode,
   statusCode,
   findCodes,
-} from "../services/code.service";
+} from "../services/code.services";
 
 const compareCode = async (req: Request, res: Response) => {
   try {
