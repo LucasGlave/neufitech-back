@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import service from "../services/ia.service";
+import service from "../services/ia.services";
 
 const getResponses = async (req: Request, res: Response) => {
   const { text } = req.body;
