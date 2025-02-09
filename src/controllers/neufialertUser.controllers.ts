@@ -9,7 +9,7 @@ const checkNumberID = async (req: Request, res: Response) => {
     }
     const number_id = await verifyUser(phone_number)
     if (number_id) {
-      return res.status(200).json({ phone_number });
+      return res.status(200).json({ number_id });
     }
     return res.status(404).json({ message: "Code not found." });
   } catch (error) {
