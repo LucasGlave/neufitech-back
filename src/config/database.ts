@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const isProd = process.env.NODE_ENV === "prod";
-// const isProd = true;
 
 let sequelize: Sequelize;
 
